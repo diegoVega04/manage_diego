@@ -4,3 +4,4 @@ access_manage_project,manage_diego.project,model_manage_diego_project,base.group
 access_manage_sprint,manage_diego.sprint,model_manage_diego_sprint,base.group_user,1,1,1,1
 access_manage_task,manage_diego.task,model_manage_diego_task,base.group_user,1,1,1,1
 access_manage_technology,manage_diego.technology,model_manage_diego_technology,base.group_user,1,1,1,1
+access_manage_employee,manage_diego.employee,model_manage_diego_employee,base.group_user,1,1,1,1

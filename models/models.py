@@ -21,6 +21,7 @@ class History(models.Model):
     tasks = fields.One2many(string="Tareas", comodel_name="manage_diego.task", inverse_name="history")
     used_technologies = fields.Many2many("manage_diego.technology", compute="_get_used_technologies")
 
+    @api.depends("tasks.technologys_id")
     def _get_used_technologies(self):
         for history in self:
             technologies = None
@@ -63,12 +64,27 @@ class Task(models.Model):
                                         column2 = "technologys_ids")
     project = fields.Many2one("manage_diego.project", related="history.project", readonly=True)
     
-    #campo prioridad como parte de las ampliaciones
+    #camposy como parte de las ampliaciones
     prioridad = fields.Selection([
         ('bajo', 'Bajo'),
         ('medio', 'Medio'),
         ('alto', 'Alto'),
     ], default='medio')
+    employees = fields.Many2many(comodel_name='manage_diego.employee',
+                                    relation='employee_task_rel',
+                                    column1='task_id',
+                                    column2='employee_id',
+                                    string='Asignado a:')
+    finalizada = fields.Boolean(default=False, readonly=True)
+    
+    def boton_finalizar_tarea(self):
+        for task in self:
+            if not task.finalizada:
+                task.finalizada = True
+                task.employees = None
+            else:
+                task.finalizada = False
+
 
     #codigo ajustado a los nuevos campos y con algunos cambios para evitar errores que me daban
     @api.depends('project')
@@ -110,3 +126,20 @@ class Sprint(models.Model):
                     sprint.end_date = sprint.start_date + datetime.timedelta(days=sprint.duration)
                 else:
                     sprint.end_date = sprint.start_date
+
+#clase empleados como ampliacion
+class Employee(models.Model):
+    _name = 'manage_diego.employee'
+    _description = 'manage_diego.employee'
+
+    name = fields.Char()
+    rol = fields.Selection([
+        ('jefe', 'Jefe'),
+        ('empleado', 'Empleado'),
+    ], default='empleado')
+
+    task_id = fields.Many2many(comodel_name='manage_diego.task',
+                                relation='employee_task_rel',
+                                column1='employee_id',
+                                column2='task_id',
+                                string='Tareas Asignadas:')

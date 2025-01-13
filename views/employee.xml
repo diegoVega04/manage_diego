@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="manage_diego.employee_tree">
+            <field name="name">manage_diego employee tree</field>
+            <field name="model">manage_diego.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="rol"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="manage_diego.employee_form">
+            <field name="name">manage_diego employee form</field>
+            <field name="model">manage_diego.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="rol"/>
+                    <field name="task_id"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="manage_diego.action_employee_window">
+            <field name="name">manage_diego employee window</field>
+            <field name="res_model">manage_diego.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Employees" id="manage_diego.menu_1_employee_list" parent="manage_diego.menu_1" action="manage_diego.action_employee_window"/>
+    </data>
+</odoo>

@@ -29,6 +29,7 @@
         'views/history.xml',
         'views/project.xml',
         'views/sprint.xml',
+        'views/employee.xml',
         'views/task.xml',
         'views/views.xml',
         'views/templates.xml',

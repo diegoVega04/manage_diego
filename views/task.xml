@@ -17,17 +17,26 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <field name="project"/>
-                        <field name="history"/> 
-                        <field name="code"/>
-                        <field name="name"/>
-                        <field name="description"/>
-                        <field name="start_date"/>
-                        <field name="end_date"/>
-                        <field name="is_paused"/>
-                        <field name="sprint_id"/>
-                        <field name="technologys_id"/>
-                        <field name="prioridad"/>
+                        <group>
+                            <field name="project"/>
+                            <field name="history"/> 
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="sprint_id"/>
+                            <field name="technologys_id"/>
+                            <field name="employees"/>
+                        </group>
+
+                        <group>
+                            <field name="is_paused"/>
+                            <field name="prioridad"/>
+                            <field name="finalizada"/>
+                            <button name="boton_finalizar_tarea" string="Finalizar" type="object" class="oe_highlight" attrs="{'invisible': [('finalizada', '=', True)]}"/>
+                            <button name="boton_finalizar_tarea" string="Reabrir" type="object" class="oe_highlight" attrs="{'invisible': [('finalizada', '=', False)]}"/>
+                        </group>
                     </group>
                 </form>
             </field>
