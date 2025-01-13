@@ -62,6 +62,12 @@ class Task(models.Model):
                                         column1 = "tasks_ids", 
                                         column2 = "technologys_ids")
     project = fields.Many2one("manage_diego.project", related="history.project", readonly=True)
+    #campo prioridad como parte de las ampliaciones mia
+    prioridad = fields.Selection([
+        ('bajo', 'Bajo'),
+        ('medio', 'Medio'),
+        ('alto', 'Alto'),
+    ], default='medio')
 
     #codigo ajustado a los nuevos campos y con algunos cambios para evitar errores que me daban
     @api.depends('project')

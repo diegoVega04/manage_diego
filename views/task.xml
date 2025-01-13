@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="prioridad"/>
                 </tree>
             </field>
         </record>
@@ -26,6 +27,7 @@
                         <field name="is_paused"/>
                         <field name="sprint_id"/>
                         <field name="technologys_id"/>
+                        <field name="prioridad"/>
                     </group>
                 </form>
             </field>
