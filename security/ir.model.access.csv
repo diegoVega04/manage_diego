@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manage_history,manage_diego.history,model_manage_diego_history,base.group_user,1,1,1,1
+access_manage_project,manage_diego.project,model_manage_diego_project,base.group_user,1,1,1,1
+access_manage_sprint,manage_diego.sprint,model_manage_diego_sprint,base.group_user,1,1,1,1
+access_manage_task,manage_diego.task,model_manage_diego_task,base.group_user,1,1,1,1
+access_manage_technology,manage_diego.technology,model_manage_diego_technology,base.group_user,1,1,1,1

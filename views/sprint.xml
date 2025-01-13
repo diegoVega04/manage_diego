@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record model="ir.ui.view" id="manage_diego.sprint_list">
+            <field name="name">manage_diego sprint list</field>
+            <field name="model">manage_diego.sprint</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="manage_diego.sprint_form">
+            <field name="name">manage_diego sprint form</field>
+            <field name="model">manage_diego.sprint</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="project"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="duration"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="manage_diego.action_sprint_window">
+            <field name="name">manage_diego sprint window</field>
+            <field name="res_model">manage_diego.sprint</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Sprints" id="manage_diego.menu_1_sprint_list" parent="manage_diego.menu_1" action="manage_diego.action_sprint_window"/>
+
+
+    </data>
+
+
+</odoo>

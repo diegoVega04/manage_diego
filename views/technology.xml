@@ -1,0 +1,41 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="manage_diego.technology_list">
+            <field name="name">manage_diego technology list</field>
+            <field name="model">manage_diego.technology</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="manage_diego.technology_form">
+            <field name="name">manage_diego technology form</field>
+            <field name="model">manage_diego.technology</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="photo"/>                        
+                    </group>
+                </form>
+            </field>
+    </record>
+
+        
+ 
+    <record model="ir.actions.act_window" id="manage_diego.action_technology_window">
+      <field name="name">manage_diego technology window</field>
+      <field name="res_model">manage_diego.technology</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="manage_diego 24/25" id="manage_diego.menu_root"/>
+    <menuitem name="management_diego" id="manage_diego.menu_1" parent="manage_diego.menu_root"/>
+    <menuitem name="Technologies" id="manage_diego.menu_1_technology_list" parent="manage_diego.menu_1"
+              action="manage_diego.action_technology_window"/>
+    
+  </data>
+</odoo>

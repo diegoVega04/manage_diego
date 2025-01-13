@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="manage_diego.task_list">
+            <field name="name">manage_diego task list</field>
+            <field name="model">manage_diego.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="manage_diego.task_form">
+            <field name="name">manage_diego task form</field>
+            <field name="model">manage_diego.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="project"/>
+                        <field name="history"/> 
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="is_paused"/>
+                        <field name="sprint_id"/>
+                        <field name="technologys_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="manage_diego.action_task_window">
+            <field name="name">manage_diego task window</field>
+            <field name="res_model">manage_diego.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Tasks" id="manage_diego.menu_1_task_list" parent="manage_diego.menu_1" action="manage_diego.action_task_window"/>
+
+    </data>
+
+
+</odoo>

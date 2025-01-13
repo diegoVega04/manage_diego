@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record model="ir.ui.view" id="manage_diego.history_tree">
+            <field name="name">manage_diego history tree</field>
+            <field name="model">manage_diego.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+
+    <data>
+        <record model="ir.ui.view" id="manage_diego.history_form">
+            <field name="name">manage_diego history form</field>
+            <field name="model">manage_diego.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="project"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="used_technologies"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="manage_diego.action_history_window">
+            <field name="name">manage_diego history window</field>
+            <field name="res_model">manage_diego.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Histories" id="manage_diego.menu_1_history_list" parent="manage_diego.menu_1" action="manage_diego.action_history_window"/>
+
+    </data>
+
+</odoo>
