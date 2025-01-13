@@ -62,7 +62,8 @@ class Task(models.Model):
                                         column1 = "tasks_ids", 
                                         column2 = "technologys_ids")
     project = fields.Many2one("manage_diego.project", related="history.project", readonly=True)
-    #campo prioridad como parte de las ampliaciones mia
+    
+    #campo prioridad como parte de las ampliaciones
     prioridad = fields.Selection([
         ('bajo', 'Bajo'),
         ('medio', 'Medio'),
@@ -78,9 +79,10 @@ class Task(models.Model):
                     ('project', '=', task.project.id),
                     ('end_date', '>', fields.Datetime.now())
                 ], order='end_date asc', limit=1)
-                task.sprint_id = sprints.id if sprints else False
-            else:
-                task.sprint_id = False
+                if sprints:
+                    task.sprint_id = sprints.id  
+                else:
+                    task.sprint_id = False
 
     @api.depends()
     def _get_code(self):    
