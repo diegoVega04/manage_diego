@@ -69,7 +69,7 @@ class Task(models.Model):
         ('bajo', 'Bajo'),
         ('medio', 'Medio'),
         ('alto', 'Alto'),
-    ], default='medio')
+    ], default='medio', required=True)
     employees = fields.Many2many(comodel_name='manage_diego.employee',
                                     relation='employee_task_rel',
                                     column1='task_id',
@@ -136,7 +136,7 @@ class Employee(models.Model):
     rol = fields.Selection([
         ('jefe', 'Jefe'),
         ('empleado', 'Empleado'),
-    ], default='empleado')
+    ], default='empleado', required=True)
 
     task_id = fields.Many2many(comodel_name='manage_diego.task',
                                 relation='employee_task_rel',

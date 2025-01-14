@@ -8,6 +8,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="prioridad"/>
+                    <field name="project"/>
                 </tree>
             </field>
         </record>
@@ -32,7 +33,7 @@
 
                         <group>
                             <field name="is_paused"/>
-                            <field name="prioridad"/>
+                            <field name="prioridad" required="1"/>
                             <field name="finalizada"/>
                             <button name="boton_finalizar_tarea" string="Finalizar" type="object" class="oe_highlight" attrs="{'invisible': [('finalizada', '=', True)]}"/>
                             <button name="boton_finalizar_tarea" string="Reabrir" type="object" class="oe_highlight" attrs="{'invisible': [('finalizada', '=', False)]}"/>
