@@ -74,7 +74,7 @@ class Task(models.Model):
                                     relation='employee_task_rel',
                                     column1='task_id',
                                     column2='employee_id',
-                                    string='Asignado a:')
+                                    string='Realizandola:')
     finalizada = fields.Boolean(default=False, readonly=True)
     
     def boton_finalizar_tarea(self):
